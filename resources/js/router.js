@@ -36,7 +36,7 @@ const router = new Router({
                 },
                 {
                     path: "/add",
-                    name: outlets.add,
+                    name: "outlets.add",
                     component: AddOutlet,
                     meta: { title: "Add New Outlet" }
                 },
@@ -52,6 +52,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+    store.commit("CLEAR_ERRORS");
     if (to.matched.some(record => record.meta.requiresAuth)) {
         let auth = store.getters.isAuth;
         if (!auth) {
