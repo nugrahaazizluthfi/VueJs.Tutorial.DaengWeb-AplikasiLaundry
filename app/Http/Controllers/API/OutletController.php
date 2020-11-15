@@ -50,4 +50,11 @@ class OutletController extends Controller
         $outlet->update($request->except('code'));
         return response()->json(['status' => 'success'], 200);
     }
+
+    public function destroy($id)
+    {
+        $outlet = Outlet::find($id);
+        $outlet->delete();
+        return response()->json(['status' => 'success'], 200);
+    }
 }
