@@ -41,6 +41,7 @@ const mutations = {
 
 const actions = {
     getOutlets({ commit, state }, payload) {
+        console.log("tes");
         let search = typeof payload != "undefined" ? payload : "";
         return new Promise((resolve, reject) => {
             $axios

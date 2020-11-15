@@ -5,7 +5,7 @@ const $axios = axios.create({
     headers: {
         Authorization:
             localStorage.getItem("token") != "null"
-                ? "Bearer" + localStorage.getItem("token")
+                ? "Bearer " + localStorage.getItem("token")
                 : "",
         "Content-Type": "application/json"
     }

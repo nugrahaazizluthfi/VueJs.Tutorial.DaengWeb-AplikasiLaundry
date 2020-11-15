@@ -26,7 +26,7 @@
                     :fields="fields"
                     show-empty
                 >
-                    <template slot="status" slot-scope="row">
+                    <template v-slot:cell(status)="row">
                         <span
                             v-if="row.item.status == 1"
                             class="label label-success"
@@ -35,7 +35,7 @@
                         </span>
                         <span v-else class="label label-default">Inactive</span>
                     </template>
-                    <template slot="actions" slot-scope="row">
+                    <template v-slot:cell(actions)="row">
                         <router-link
                             :to="{
                                 name: 'outlets.edit',
@@ -121,7 +121,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions("outlet", ["getOutlet", "removeOutlet"]),
+        ...mapActions("outlet", ["getOutlets", "removeOutlet"]),
         deleteOutlet(id) {
             this.$swal({
                 title: "Kamu Yakin?",

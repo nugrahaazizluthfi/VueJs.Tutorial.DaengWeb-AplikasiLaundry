@@ -2,7 +2,7 @@
     <div class="container">
         <section class="content-header">
             <h1>Manage Outlets</h1>
-            <breadcrumb></breadcrumb>
+            <breadcrumbs></breadcrumbs>
         </section>
         <section class="content">
             <div class="row">
@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import Breadcrumb from "./../../components/Breadcrumbs.vue";
+import Breadcrumbs from "./../../components/Breadcrumbs.vue";
 export default {
     name: "IndexOutlet",
     components: {
-        breadcrumbs: Breadcrumb
+        breadcrumbs: Breadcrumbs
     }
 };
 </script>

@@ -17,6 +17,7 @@ const store = new Vuex.Store({
     },
     getters: {
         isAuth: state => {
+            console.log("state", state.token);
             return state.token != "null" && state.token != null;
         }
     },

@@ -17,11 +17,15 @@ export default {
     name: "App",
     computed: {
         ...mapState(["token"]),
-        ...mapState(["isAuth"])
+        ...mapGetters(["isAuth"])
     },
     components: {
         "app-header": Header,
         "app-footer": Footer
+    },
+    created() {
+        console.log("tes");
+        console.log(this.isAuth);
     }
 };
 </script>
