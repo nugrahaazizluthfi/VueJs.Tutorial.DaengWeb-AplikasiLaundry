@@ -7,6 +7,8 @@ import IndexOutlet from "./pages/outlets/Index.vue";
 import DataOutlet from "./pages/outlets/Outlet.vue";
 import AddOutlet from "./pages/outlets/Add.vue";
 import EditOutlet from "./pages/outlets/Edit.vue";
+import IndexCourier from "./pages/couriers/Index.vue";
+import DataCourier from "./pages/couriers/Courier.vue";
 
 Vue.use(Router);
 

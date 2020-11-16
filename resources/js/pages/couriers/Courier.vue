@@ -80,7 +80,65 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+
+export default {
+    name: "DataCourier",
+    created() {
+        this.getCouriers();
+    },
+    data() {
+        return {
+            fields: [
+                { key: "photo", label: "#" },
+                { key: "name", label: "Nama Lengkap" },
+                { key: "email", label: "Email" },
+                { key: "outlet_id", label: "Outlet" },
+                { key: "actions", label: "Aksi" }
+            ],
+            search: ""
+        };
+    },
+    computed: {
+        ...mapState("courier", {
+            couriers: state => state.couriers
+        }),
+        page: {
+            get() {
+                return this.$store.state.courier.page;
+            },
+            set(val) {
+                this.$store.commit("courier/SET_PAGE", val);
+            }
+        }
+    },
+    watch: {
+        page() {
+            this.getCouriers();
+        },
+        search() {
+            this.getCouriers(this.getSearch);
+        }
+    },
+    methods: {
+        ...mapActions("courier", ["getCouriers", "removeCourier"]),
+        deleteCourier(id) {
+            this.$swal({
+                title: "Kamu Yakin?",
+                text: "Tindakan ini akan menghapus secara permanent!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Iya, Lanjutkan!"
+            }).then(result => {
+                if (result.value) {
+                    this.removeCourier(id);
+                }
+            });
+        }
+    }
+};
 </script>
 
 <style scoped></style>

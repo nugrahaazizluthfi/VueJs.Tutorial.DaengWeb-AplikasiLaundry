@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Breadcrumb from "../../components/Breadcrumb.vue";
+import Breadcrumbs from "./../../components/Breadcrumbs.vue";
 export default {
     name: "IndexCourier",
     components: {
-        breadcrumb: Breadcrumb
+        breadcrumb: Breadcrumbs
     }
 };
 </script>
