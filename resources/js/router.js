@@ -27,6 +27,7 @@ const router = new Router({
         {
             path: "/outlets",
             component: IndexOutlet,
+            meta: { requiresAuth: true },
             children: [
                 {
                     path: "",
@@ -45,6 +46,19 @@ const router = new Router({
                     name: "outlets.edit",
                     component: EditOutlet,
                     meta: { title: "Edit Outlet" }
+                }
+            ]
+        },
+        {
+            path: "/couriers",
+            component: IndexCourier,
+            meta: { requiresAuth: true },
+            children: [
+                {
+                    path: "",
+                    name: "couriers.data",
+                    component: DataCourier,
+                    meta: { title: "Manage Couriers" }
                 }
             ]
         }
