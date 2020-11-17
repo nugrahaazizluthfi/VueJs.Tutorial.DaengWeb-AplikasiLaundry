@@ -9,6 +9,7 @@ import AddOutlet from "./pages/outlets/Add.vue";
 import EditOutlet from "./pages/outlets/Edit.vue";
 import IndexCourier from "./pages/couriers/Index.vue";
 import DataCourier from "./pages/couriers/Courier.vue";
+import AddCouriers from "./pages/couriers/Add.vue";
 
 Vue.use(Router);
 
@@ -61,6 +62,18 @@ const router = new Router({
                     name: "couriers.data",
                     component: DataCourier,
                     meta: { title: "Manage Couriers" }
+                },
+                {
+                    path: "add",
+                    name: "couriers.add",
+                    component: AddCouriers,
+                    meta: { title: "Add New Courier" }
+                },
+                {
+                    path: "edit/:id",
+                    name: "couriers.edit",
+                    component: EditCouriers,
+                    meta: { title: "Edit Courier" }
                 }
             ]
         }

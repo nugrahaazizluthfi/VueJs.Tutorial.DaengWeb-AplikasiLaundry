@@ -29,6 +29,28 @@ const actions = {
                     resolve(response.data);
                 });
         });
+    },
+    submitCourier({ dispatch, commit }, payload) {
+        return new Promise((resolve, reject) => {
+            $axios
+                .post(`/couriers`, payload, {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                })
+                .then(response => {
+                    dispatch("getCouriers").then(() => {
+                        resolve(response.data);
+                    });
+                })
+                .catch(error => {
+                    if (error.response.status == 422) {
+                        commit("SET_ERRORS", error.response.data.errors, {
+                            root: true
+                        });
+                    }
+                });
+        });
     }
 };
 
