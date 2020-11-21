@@ -51,6 +51,35 @@ const actions = {
                     }
                 });
         });
+    },
+    editCourier({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            $axios.get(`/couriers/${payload}/edit`).then(response => {
+                resolve(response.data);
+            });
+        });
+    },
+    updateCourier({ state }, payload) {
+        return new Promise((resolve, reject) => {
+            $axios
+                .post(`/couriers/${state.id}`, payload, {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                })
+                .then(response => {
+                    resolve(response.data);
+                });
+        });
+    },
+    removeCourier({ dispatch }, payload) {
+        return new Promise((resolve, reject) => {
+            //MELAKUKAN PERMINTAAN KE SERVER DENGAN METHOD DELETE DAN MENGIRIMKAN ID YANG AKAN DIHAPUS
+            $axios.delete(`/couriers/${payload}`).then(response => {
+                //MENGAMBIL DATA TERBARU DARI SERVER
+                dispatch("getCouriers").then(() => resolve(response.data));
+            });
+        });
     }
 };
 

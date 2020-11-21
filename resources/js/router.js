@@ -10,6 +10,7 @@ import EditOutlet from "./pages/outlets/Edit.vue";
 import IndexCourier from "./pages/couriers/Index.vue";
 import DataCourier from "./pages/couriers/Courier.vue";
 import AddCouriers from "./pages/couriers/Add.vue";
+import EditCouriers from "./pages/couriers/Edit.vue";
 
 Vue.use(Router);
 
